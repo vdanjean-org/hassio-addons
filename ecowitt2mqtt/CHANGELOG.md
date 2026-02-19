@@ -1,6 +1,7 @@
 ## 2026.02.1
 
 - Minimize container size
+- improve config schema
 
 ## 2026.02.0
 

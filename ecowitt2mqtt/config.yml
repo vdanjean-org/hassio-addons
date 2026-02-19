@@ -22,15 +22,15 @@ environment:
   HASSIO_ADDON: 'true'
 
 options:
-  output_unit_system: "imperial"
-  input_unit_system: "imperial"
+  output_unit_system: "metric"
+  input_unit_system: "metric"
   hass_discovery_prefix: "homeassistant"
   hass_entity_id_prefix: ""
 schema:
-  output_unit_system: "match(imperial|metric)?"
-  input_unit_system: "match(imperial|metric)?"
+  output_unit_system: "list(imperial|metric)"
+  input_unit_system: "list(imperial|metric)"
   mqtt_host: "str?"
-  mqtt_port: "str?"
+  mqtt_port: "int?"
   mqtt_user: "str?"
   mqtt_pass: "str?"
   hass_discovery_prefix: "str?"
