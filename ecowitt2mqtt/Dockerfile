@@ -51,7 +51,12 @@ RUN apt-get update \
         /usr/src/ecowitt2mqtt \
         /var/www \
         /var/lib/apt/lists/* \
-        /root/.cache
+        /root/.cache \
+    && find /usr/share/doc -depth -type f ! -name copyright|xargs rm || true \
+    && find /usr/share/doc -empty|xargs rmdir || true \
+    && rm -rf /usr/share/groff/* /usr/share/info/* \
+    && rm -rf /usr/share/lintian/* /usr/share/linda/* /var/cache/man/* \
+    && rm -rf /usr/share/man/*
 
 # Copy data for add-on
 COPY run.sh /
