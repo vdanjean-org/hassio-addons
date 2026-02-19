@@ -32,17 +32,27 @@ RUN apt-get update \
         python3-uvloop \
         python3-paho-mqtt \
         python3-pip \
-        git
-
-#RUN addgroup --gid 1000 -S ecowitt2mqtt && adduser -u 1000 -S ecowitt2mqtt -G ecowitt2mqtt
-RUN adduser --system --uid 900 --group --no-create-home ecowitt2mqtt
-
-RUN git clone --depth 1 -b "${ECOWITT2MQTT_VERSION}" \
+        git \
+    && git clone --depth 1 -b "${ECOWITT2MQTT_VERSION}" \
         https://github.com/bachya/ecowitt2mqtt \
     && cd ecowitt2mqtt \
     && sed -e '/^python-multipart/s/0[.]0[.]18/0.0.21/' -i pyproject.toml \
-    && pip3 install --no-cache --root-user-action ignore --break-system-packages --compile .
-    
+    && pip3 install --no-cache --root-user-action ignore --break-system-packages --compile . \
+    && adduser --system --uid 900 --group --no-create-home ecowitt2mqtt \
+    && apt-get purge -y --auto-remove \
+        adduser \
+        build-essential \
+        python3-dev \
+        libffi-dev \
+        git \
+    && apt-get clean \
+    && rm -fr \
+        /etc/logrotate.d \
+        /usr/src/ecowitt2mqtt \
+        /var/www \
+        /var/lib/apt/lists/* \
+        /root/.cache
+
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
