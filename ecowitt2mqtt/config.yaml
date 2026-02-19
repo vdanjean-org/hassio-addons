@@ -3,14 +3,14 @@ name: Ecowitt2mqtt
 version: "2026.02.0"
 slug: ecowitt2mqtt
 description: An addon for locally processing data from Ecowitt Personal Weather Stations
-url: "https://github.com/vdanjean/hassio-addons/tree/main/ecowitt2mqtt"
+url: "https://github.com/vdanjean-org/hassio-addons/tree/main/ecowitt2mqtt"
 arch:
   - aarch64
   - amd64
 init: false
 #map:
 #  - share:rw
-image: "vdanjean/ecowitt2mqtt-addon-{arch}"
+image: "vdanjean-org/ecowitt2mqtt-addon-{arch}"
 
 stage: stable
 startup: "application"
