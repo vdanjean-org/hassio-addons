@@ -13,7 +13,7 @@ init: false
 #map:
 #  - share:rw
 services:
-  - mqtt: need
+  - mqtt:need
 ports:
   "8000/tcp": 8000
 ports_description:
