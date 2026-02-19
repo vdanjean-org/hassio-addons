@@ -1,7 +1,7 @@
 ---
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Ecowitt2mqtt
-image: "vdanjean-org/ecowitt2mqtt-addon-{arch}"
+image: "ghcr.io/vdanjean-org/ecowitt2mqtt-addon-{arch}"
 version: 2026.02.0
 slug: ecowitt2mqtt
 description: An addon for locally processing data from Ecowitt Personal Weather Stations
