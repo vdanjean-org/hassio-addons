@@ -12,11 +12,8 @@ init: false
 #  - share:rw
 image: "vdanjean-org/ecowitt2mqtt-addon-{arch}"
 
-stage: stable
-startup: "application"
 services:
   - mqtt: need
-boot: "auto"
 options:
   output_unit_system: "imperial"
   input_unit_system: "imperial"
